@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/nearest-color/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/nearest-color/static/js/main.b4e68582.chunk.js",
+    "main.js.map": "/nearest-color/static/js/main.b4e68582.chunk.js.map",
+    "runtime-main.js": "/nearest-color/static/js/runtime-main.e78363c7.js",
+    "runtime-main.js.map": "/nearest-color/static/js/runtime-main.e78363c7.js.map",
+    "static/js/2.e3020eae.chunk.js": "/nearest-color/static/js/2.e3020eae.chunk.js",
+    "static/js/2.e3020eae.chunk.js.map": "/nearest-color/static/js/2.e3020eae.chunk.js.map",
+    "index.html": "/nearest-color/index.html",
+    "precache-manifest.afdd7c3af0e9f91bc76af69259d99b8b.js": "/nearest-color/precache-manifest.afdd7c3af0e9f91bc76af69259d99b8b.js",
+    "service-worker.js": "/nearest-color/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/nearest-color/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.e3020eae.chunk.js.LICENSE.txt": "/nearest-color/static/js/2.e3020eae.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e78363c7.js",
+    "static/js/2.e3020eae.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.b4e68582.chunk.js"
+  ]
+}
