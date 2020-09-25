@@ -11,6 +11,8 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "emotion-theming": "^10.0.27",
+    "jsoneditor": "^9.1.1",
+    "jsoneditor-react": "^3.0.1",
     "nearest-color": "^0.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
