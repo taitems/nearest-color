@@ -15,15 +15,27 @@ function Form() {
 
     const [color, setColor] = useState(placeholderColor);
     const [safeColor, setSafeColor] = useState(placeholderColor);
-    // const [safeTextColor, setSafeTextColor] = useState(contrast(placeholderColor))
     const [match, setMatch] = useState(nearestColor(placeholderColor));
+
+    const editorRef = React.createRef();
 
     const isHex = str => {
         return /^#[A-F0-9]{6}$/i.test(str)
     }
 
-    const onListChange = e => {
-        console.log(e.target.value);
+    const onListChange = jsonData => {
+        console.log(jsonData);
+        let isValid = true;
+        for (let key in jsonData) {
+            const validHex = isHex(jsonData[key]);
+            if (!validHex) {
+                isValid = false;
+                break;
+            }
+        }
+        if (isValid) {
+            setList(jsonData);
+        }
     }
 
     const onColorChange = e => {
@@ -108,9 +120,15 @@ function Form() {
         </Box>
 
         <Editor
+            ref={editorRef}
             value={list}
             onChange={onListChange}
-            mode="text"
+            mode="code"
+            htmlElementProps={{
+                style: {
+                    height: 500
+                },
+            }}
         />
     </>)
 }
