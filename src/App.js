@@ -14,7 +14,7 @@ function App() {
 
         <Box textAlign="center" py={4}>
           <Text as="h1" fontSize={32} fontWeight={900} letterSpacing="-.035em">Nearest Color</Text>
-          <Text as="p">Find the nearest color from a list of colors</Text>
+          <Text as="p">Finds the nearest color from a list of colors</Text>
         </Box>
 
         <Form />

@@ -3,10 +3,10 @@ import { Input, Flex, Box, Text } from "@chakra-ui/core";
 import { JsonEditor as Editor } from 'jsoneditor-react';
 import 'jsoneditor-react/es/editor.min.css';
 import defaultColors from './defaultColors';
-const contrast = require('./contrast');
+const contrast = require('./helpers/contrast');
+const isHex = require('./helpers/isHex');
 
-
-function Form() {
+const Form = () => {
 
     const placeholderColor = '#DFE0F0';
 
@@ -17,14 +17,7 @@ function Form() {
     const [safeColor, setSafeColor] = useState(placeholderColor);
     const [match, setMatch] = useState(nearestColor(placeholderColor));
 
-    const editorRef = React.createRef();
-
-    const isHex = str => {
-        return /^#[A-F0-9]{6}$/i.test(str)
-    }
-
     const onListChange = jsonData => {
-        console.log(jsonData);
         let isValid = true;
         for (let key in jsonData) {
             const validHex = isHex(jsonData[key]);
@@ -35,15 +28,14 @@ function Form() {
         }
         if (isValid) {
             setList(jsonData);
+            const newColor = nearestColor(color);
+            setMatch(newColor);
         }
     }
 
-    const onColorChange = e => {
-        console.log(e.target.value);
-        const localColor = e.target.value;
+    const onColorChange = localColor => {
         setColor(localColor);
         if (isHex(localColor)) {
-            console.log('isHex true!')
             setSafeColor(localColor);
             const newColor = nearestColor(localColor);
             setMatch(newColor);
@@ -92,7 +84,7 @@ function Form() {
                 width={`calc(50% - ${ROW_SIZE / 3}px)`}
                 bg={safeColor}>
                 <Flex width="100%" height="100%" justifyItems="center" zIndex={2} position="relative" pt="3.25rem" px={4}>
-                    <Input value={color} onChange={onColorChange} bg="transparent" textAlign="center" fontSize={28} borderColor="rgba(0,0,0,0.05)" color={contrast(color)} />
+                    <Input value={color} onChange={e => { onColorChange(e.target.value) }} bg="transparent" textAlign="center" fontSize={28} borderColor="rgba(0,0,0,0.05)" color={contrast(color)} />
                 </Flex>
                 <Arrow />
             </Box>
@@ -120,7 +112,6 @@ function Form() {
         </Box>
 
         <Editor
-            ref={editorRef}
             value={list}
             onChange={onListChange}
             mode="code"
